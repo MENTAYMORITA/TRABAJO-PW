@@ -1,0 +1,132 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    width: 100%;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 40px; 
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px; 
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    height: 35px; 
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 0 10px; 
+    background-color: #007bff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    color: #fff;
+    cursor: pointer;
+    height: 35px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-button .search-image {
+    height: 18px;  
+}
+
+.search-button .search-image2 {
+    height: 18px;  
+}
+
+.user-options {
+    display: flex;
+    align-items: center; 
+  }
+  
+.user-options a {
+    margin-left: 15px; 
+    text-decoration: none;
+    color: #333;
+    font-size: 13px; 
+}
+
+.user-options i {
+    margin-right: 5px;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center; 
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.search-image2 {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 8px; 
+}
+
+
+/* Opciones de usuario */
+.user-options a.register-icon {
+    margin-left: 15px; 
+    text-decoration: none;
+    color: #333;
+    font-size: 13px; 
+}
+
+.user-options a.register-icon i {
+    margin-right: 5px;
+}
+
+/* Barra de Navegación Principal */
+.main-nav {
+    background-color: #007bff;
+    padding: 8px 0; 
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px; 
+    font-weight: bold;
+}
+
+.main-nav .rojo {
+    color: red;
+}

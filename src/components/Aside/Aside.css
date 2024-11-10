@@ -1,0 +1,17 @@
+aside {
+    margin-right: 15px;
+
+}
+
+.divAside {
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px gray;
+}
+
+img {
+    margin: 5px;
+}
+
+aside p {
+    text-align: center;
+}
