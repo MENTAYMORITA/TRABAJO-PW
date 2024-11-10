@@ -1,0 +1,93 @@
+ [
+    {
+      "id": 1,
+      "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173109725788468.webp",
+      "name": "Laptop Msi Core i7-13620h Katana 15 Gaming",
+      "code": "019672",
+      "stock": 1,
+      "priceUSD": "$1 103.00",
+      "pricePEN": "S/4 191.40"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173108788942678.webp",
+      "name": "Laptop Lenovo Ryzen 7-7435hs Loq 15arpg Gaming",
+      "code": "019677",
+      "stock": 1,
+      "priceUSD": "$1 336.00",
+      "pricePEN": "S/5 076.80"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://www.impacto.com.pe/storage/products/sm/17309117825035.webp",
+      "name": "Laptop Asus Ryzen 7-7730u 15-Fc002la",
+      "code": "019658",
+      "stock": 3,
+      "priceUSD": "$629.00",
+      "pricePEN": "S/2 390.20"
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173090598557072.webp",
+      "name": "Tarjeta De Video Asus Rtx 4070 Ti Super 16gb",
+      "code": "019661",
+      "stock": 3,
+      "priceUSD": "$992.00",
+      "pricePEN": "S/3 769.60"
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173075107348711.webp",
+      "name": "Cable De Puerto Hdmi Macho - Macho 1.8 Metros",
+      "code": "019648",
+      "stock": 10,
+      "priceUSD": "$4.50",
+      "pricePEN": "S/17.10"
+    },
+    {
+        "id": 6,
+        "imageUrl": "https://www.impacto.com.pe/storage/products/sm/1731091149375.webp",
+        "name": "Laptop Acer Core i9-13900h Nitro V 15 Anv15-51-93pu Gaming",
+        "code": "019673",
+        "stock": 1,
+        "priceUSD": "$1 378.00",
+        "pricePEN": "S/5 236.40"
+    },
+    {
+        "id": 7,
+        "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173108455188357.webp",
+        "name": "Laptop Lenovo Ryzen 5-7235hs Loq 15arp9 Gaming",
+        "code": "019674",
+        "stock": 1,
+        "priceUSD": "$827.00",
+        "pricePEN": "S/3 142.60"
+    },
+    {
+        "id": 8,
+        "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173108455188357.webp",
+        "name": "Tarjeta De Video Gigabyte Rtx 4060 Ti Windforce Oc V2 8gb Gddr6",
+        "code": "019662",
+        "stock": 6,
+        "priceUSD": "$489.00",
+        "pricePEN": "S/1 858.20"
+    },
+    {
+        "id": 9,
+        "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173082041387651.webp",
+        "name": "Laptop Lenovo Core i5-1235u Flex 7 14iau7 2-In-1",
+        "code": "019664",
+        "stock": 1,
+        "priceUSD": "$605.00",
+        "pricePEN": "S/2 299.00"
+    },
+    {
+        "id": 10,
+        "imageUrl": "https://www.impacto.com.pe/storage/products/sm/173058464434173.webp",
+        "name": "Tarjeta De Video Gigabyte Rtx 4090 Aero Oc 24gb Gddr6x",
+        "code": "019624",
+        "stock": 1,
+        "priceUSD": "$2 209.00",
+        "pricePEN": "S/8 394.20"
+    }
+  ]
+  
