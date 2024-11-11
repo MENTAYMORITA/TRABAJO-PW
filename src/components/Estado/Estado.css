@@ -1,0 +1,33 @@
+.estado-container {
+    padding: 20px;
+  }
+  
+  .filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section label {
+    font-weight: bold;
+  }
+  
+  .filter-section select, .filter-section input {
+    padding: 5px;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-table th, .order-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .order-table th {
+    background-color: #f0f0f0;
+  }
+  

@@ -27,7 +27,7 @@ const Logins = () => {
 
     if (admin) {
       localStorage.setItem('usuario', JSON.stringify(admin));
-      navigate('/Contenido/admin'); // Redirige a Contenido como administrador
+      navigate('/Estado'); // Redirige a Contenido como administrador
     } else if (alumno) {
       localStorage.setItem('usuario', JSON.stringify(alumno));
       navigate('/Contenido/alumno'); // Redirige a Contenido como alumno

@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer.jsx'
 import PerfilAd from './routes/PerfilClientPage.jsx'
 import PerfilAl from './routes/PerfilAdminPage.jsx'
 import Contenido from './components/Persona/Perfil/contenido.jsx'
+import Estado from './components/Estado/Estado.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
   {
     path: "/Perfilclient",
     element: <PerfilAl />
+  },
+
+  {
+    path: "/Estado",
+    element: <Estado />
   }
 
 ]);
