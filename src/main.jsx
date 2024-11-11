@@ -6,7 +6,7 @@ import Header from './components/Header/Header.jsx'
 import Login from './routes/LoginPage.jsx'
 import Registros from './components/Persona/Registro/Register.jsx'
 import Footer from './components/Footer/Footer.jsx'
-import PerfilAd from './routes/PerfilAlumPage.jsx'
+import PerfilAd from './routes/PerfilClientPage.jsx'
 import PerfilAl from './routes/PerfilAdminPage.jsx'
 import Contenido from './components/Persona/Perfil/contenido.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     element: <PerfilAd />
   },
   {
-    path: "/Perfilalum",
+    path: "/Perfilclient",
     element: <PerfilAl />
   }
 

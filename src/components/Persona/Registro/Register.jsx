@@ -2,7 +2,7 @@ import styles from './registro.module.css';
 import Input from './input1';
 import React, { useState } from 'react';
 import Admins from "./Admin.json";
-import Alumnos from "./Alumnos.json";
+import Cliente from "./Cliente.json";
 import { useNavigate } from 'react-router-dom';
 
 const Registros = () => {
@@ -58,7 +58,7 @@ const Registros = () => {
       tipoUsuario = 'Alumno';
     }
 
-    const data = tipoUsuario === 'Admin' ? Admins : Alumnos;
+    const data = tipoUsuario === 'Admin' ? Admins : Cliente;
     data.push(nuevoUsuario);
     localStorage.setItem(tipoUsuario, JSON.stringify(data));
 

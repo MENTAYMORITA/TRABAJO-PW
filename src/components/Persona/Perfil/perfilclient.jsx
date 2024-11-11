@@ -2,7 +2,7 @@ import styles from './peralum.module.css';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Perfilalum = () => {
+const Perfilclient = () => {
   const modo = 'alumno';
   const navigate = useNavigate();
 
@@ -33,4 +33,4 @@ const Perfilalum = () => {
   );
 };
 
-export default Perfilalum;
+export default Perfilclient;

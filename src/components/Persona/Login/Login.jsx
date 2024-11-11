@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './page.module.css';
 import Input from '../Registro/input1';
 import Admins from '../Registro/Admin.json';
-import Alumnos from '../Registro/Alumnos.json';
+import Cliente from '../Registro/Cliente.json';
 
 const Logins = () => {
   const [state, setState] = useState({ usuario: '', contrasena: '' });
@@ -21,7 +21,7 @@ const Logins = () => {
       (admin) => admin.correo === usuario && admin.password === contrasena
     );
 
-    const alumno = Alumnos.find(
+    const alumno = Cliente.find(
       (alumno) => alumno.correo === usuario && alumno.password === contrasena
     );
 
