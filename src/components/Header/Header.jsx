@@ -21,10 +21,10 @@ const Header = () => {
             <img src="./src/assets/usuario.png" alt="Imagen" className="search-image2" />
             <i className="fas fa-user"></i> Inicia Sesión
           </a>  
-          <a href="#" className="register-icon">
+          <a href="/Register" className="register-icon">
             <i className="fas fa-user-plus"></i> Registrarse
           </a>
-          <a href="#" className="orders-icon">
+          <a href="/Pedido" className="orders-icon">
             <i className="fas fa-box"></i> Mis Pedidos
           </a>
           <a href="#" className="cart-icon">

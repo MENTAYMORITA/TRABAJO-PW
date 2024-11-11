@@ -44,7 +44,7 @@ header {
 
 .search-button {
     padding: 0 10px; 
-    background-color: #007bff;
+    background-color: #0039a1;
     border: none;
     border-radius: 0 4px 4px 0;
     color: #fff;
@@ -108,7 +108,7 @@ header {
 
 /* Barra de Navegación Principal */
 .main-nav {
-    background-color: #007bff;
+    background-color: #0039a1;
     padding: 8px 0; 
 }
 

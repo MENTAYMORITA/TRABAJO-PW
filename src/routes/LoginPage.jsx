@@ -1,4 +1,4 @@
-import Logins from "../components/Login/Login.jsx"
+import Logins from "../components/Persona/Login/Login.jsx"
 
 const LoginPage = () => {
     return <Logins />
