@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import './ProductList.css';
 
-const ProductList = () => {
+const ProductList = ({ limit, showAll = true, className }) => { // Recibe className como prop
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -11,20 +11,14 @@ const ProductList = () => {
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error al cargar los productos:', error));
   }, []);
-  
-  const displayedProducts = products.slice(0, 12);
+
+  const displayedProducts = showAll ? products : products.slice(0, limit);
 
   return (
-    <div className="product-list">
-      <div className="product-header">
-        <h2 className="product-title">Nuevos Productos</h2>
-        <a href="/productos" className="view-all">ver todo</a>
-      </div>
-      <div className="product-grid">
-        {displayedProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+    <div className={`product-grid ${className}`}>
+      {displayedProducts.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 };

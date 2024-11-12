@@ -7,12 +7,12 @@
 
 .product-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; 
   align-items: center;
   width: 100%;
-  max-width: 1200px; /* Limita el ancho del encabezado al mismo que la cuadrícula */
+  max-width: 1200px; 
   margin-bottom: 20px;
-  padding: 0 20px; /* Espaciado lateral para alinearlo con la cuadrícula */
+  padding: 0 20px; 
 }
 
 .product-title {
@@ -35,9 +35,14 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
   gap: 20px;
-  width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
   justify-content: center;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(200px, 1fr)); 
 }

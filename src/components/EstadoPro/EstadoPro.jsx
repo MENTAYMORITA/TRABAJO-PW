@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './EstadoPro.css';
-
+import { Link } from 'react-router-dom';
 const EstadoPro = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState('');
@@ -8,7 +8,7 @@ const EstadoPro = () => {
 
   useEffect(() => {
     // Cargar datos desde el archivo JSON
-    fetch('/EstadoPro/EstadoPro.json')
+    fetch('/Producto.json')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error al cargar datos:', error));
@@ -21,6 +21,10 @@ const EstadoPro = () => {
 
   return (
     <div className="estado-pro-container">
+      <div className="navigation-links">
+        <Link to="/Estado">ORDEN</Link>
+        <Link to="/EstadoPro">PRODUCTOS</Link>
+      </div>
       <div className="search-and-filter">
         <input
           type="text"
@@ -29,7 +33,7 @@ const EstadoPro = () => {
           onChange={e => setSearch(e.target.value)}
         />
         <select value={filter} onChange={e => setFilter(e.target.value)}>
-          <option value="">Todos los tipos</option>
+          <option value="">Todos las categorias</option>
           <option value="Laptops">Laptops</option>
           <option value="Laptops Gaming">Laptops Gaming</option>
           <option value="Tarjetas de Video">Tarjetas de Video</option>
@@ -43,7 +47,7 @@ const EstadoPro = () => {
           <tr>
             <th>Código de Productos</th>
             <th>Nombre</th>
-            <th>Tipo</th>
+            <th>Categoria</th>
             <th>Descripción</th>
             <th>Imagen</th>
             <th>Editar</th>

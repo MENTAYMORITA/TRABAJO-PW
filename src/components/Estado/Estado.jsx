@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Estado.css';
+import { Link } from 'react-router-dom';
+
 
 const Estado = () => {
   const [filter, setFilter] = useState('Pendiente');
@@ -23,6 +25,10 @@ const Estado = () => {
 
   return (
     <div className="estado-container">
+      <div className="navigation-links">
+        <Link to="/Estado">ORDEN</Link>
+        <Link to="/EstadoPro">PRODUCTOS</Link>
+      </div>
       <div className="filter-section">
         <label htmlFor="filter">Filtro:</label>
         <select id="filter" value={filter} onChange={(e) => setFilter(e.target.value)}>

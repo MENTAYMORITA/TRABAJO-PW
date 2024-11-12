@@ -31,3 +31,18 @@
     background-color: #f0f0f0;
   }
   
+  .navigation-links {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .navigation-links a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .navigation-links a:hover {
+    text-decoration: underline;
+  }

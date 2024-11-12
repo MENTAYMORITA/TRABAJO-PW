@@ -10,11 +10,14 @@ import PerfilAd from './routes/PerfilClientPage.jsx'
 import PerfilAl from './routes/PerfilAdminPage.jsx'
 import Contenido from './components/Persona/Perfil/contenido.jsx'
 import Estado from './components/Estado/Estado.jsx'
+import EstadoPro from './components/EstadoPro/EstadoPro'
+
 import AboutUs from './routes/About.jsx'
 import ProductDetail from './components/Producto/ProductDetail.jsx'; 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import TermsAndConditions from './routes/TermsPage.jsx'
+import ProductList from './components/principal/ProductList.jsx'
 
 const router = createBrowserRouter([
   {
@@ -56,6 +59,14 @@ const router = createBrowserRouter([
   {
     path: "/Estado",
     element: <Estado />
+  },
+  {
+    path: "/EstadoPro",
+    element: <EstadoPro />
+  },
+  {
+    path: "/ProductList",
+    element: <ProductList />
   },
   {
     path: "/product/:productId",
