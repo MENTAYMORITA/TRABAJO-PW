@@ -29,7 +29,7 @@ const Header = () => {
           <a href="/Pedido" className="orders-icon">
             <i className="fas fa-box"></i> Mis Pedidos
           </a>
-          <a href="#pruebitanomas" className="cart-icon">
+          <a href="/Carrito" className="cart-icon">
             <i className="fas fa-shopping-cart"></i> Carrito
           </a>
         </div>

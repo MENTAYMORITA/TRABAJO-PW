@@ -1,0 +1,165 @@
+.carrito-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .carro {
+    flex: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carro h3 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+  
+  .vendedor {
+    color: #3a7a3b;
+    font-weight: bold;
+  }
+  
+  .seleccionar-todos {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+  }
+  
+  .producto {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .producto img {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .info-producto {
+    flex: 1;
+  }
+  
+  .nombre {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  .marca {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+  
+  .precios {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .precio-actual {
+    color: #e60000;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .precio-anterior {
+    color: #777;
+    text-decoration: line-through;
+  }
+  
+  .descuento {
+    background-color: #e60000;
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.8em;
+  }
+  
+  .acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .eliminar {
+    color: #e60000;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  .cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .cantidad button {
+    background: none;
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .resumen-orden {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resumen-orden h3 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+  
+  .resumen-orden div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+  }
+  
+  .descuento-total {
+    color: #e60000;
+  }
+  
+  .total {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 10px;
+  }
+  
+  .precio-tarjeta {
+    color: #e60000;
+    font-size: 1.1em;
+  }
+  
+  .continuar-compra {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .continuar-compra:hover {
+    background-color: #555;
+  }
+  

@@ -21,6 +21,8 @@ import ProductDetail from './components/Producto/ProductDetail.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import ProductList from './components/principal/ProductList.jsx'
+import DetallePago from './components/DetallePago/DetallePago'
+import Carrito from './components/Carrito/Carrito'
 
 const router = createBrowserRouter([
   {
@@ -79,6 +81,10 @@ const router = createBrowserRouter([
   {
     path: "/product/:productId",
     element: <ProductDetail />
+  },
+  {
+    path: "/Carrito",
+    element: <Carrito/>
   }
 
 ]);
