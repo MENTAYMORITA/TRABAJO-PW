@@ -12,11 +12,14 @@ import Contenido from './components/Persona/Perfil/contenido.jsx'
 import Estado from './components/Estado/Estado.jsx'
 import EstadoPro from './components/EstadoPro/EstadoPro'
 
-import AboutUs from './routes/About.jsx'
+import AboutUs from './routes/Informacion/AboutPage.jsx'
+import TermsAndConditions from './routes/Informacion/TermsPage.jsx'
+import PrivacyP from './routes/Informacion/PrivacyPolicyPage.jsx'
+
 import ProductDetail from './components/Producto/ProductDetail.jsx'; 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import TermsAndConditions from './routes/TermsPage.jsx'
+
 import ProductList from './components/principal/ProductList.jsx'
 
 const router = createBrowserRouter([
@@ -54,6 +57,11 @@ const router = createBrowserRouter([
   {
     path: "/Terms",
     element: <TermsAndConditions />
+  },
+
+  {
+    path: "/Privacidad",
+    element: <PrivacyP />
   },
 
   {

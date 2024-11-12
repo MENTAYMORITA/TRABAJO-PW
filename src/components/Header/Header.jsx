@@ -89,7 +89,7 @@ const Header = () => {
             <div className="desplegable-contactanos">
               <a href="/SobreNosotros">Sobre Nosotros</a>
               <a href="/Terms">Términos y condiciones</a>
-              <a href="#">Política de privacidad</a>
+              <a href="/Privacidad">Política de privacidad</a>
               <a href="#">Contacto</a>
             </div>
           </li>
