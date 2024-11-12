@@ -28,12 +28,8 @@ const Estado = () => {
         <label htmlFor="filter">Filtro:</label>
         <select id="filter" value={filter} onChange={(e) => setFilter(e.target.value)}>
           <option value="Pendiente">Pendiente</option>
-          <option value="En Revisión">En Revisión</option>
-          <option value="En Curso">En Curso</option>
-          <option value="Aceptado">Aceptado</option>
           <option value="Entregado">Entregado</option>
-          <option value="Rechazado">Rechazado</option>
-          <option value="Cancelado">Cancelado</option>
+          <option value="Todos">Todos</option>
         </select>
         <input
           type="text"

@@ -27,7 +27,7 @@ const Header = () => {
           <a href="/Pedido" className="orders-icon">
             <i className="fas fa-box"></i> Mis Pedidos
           </a>
-          <a href="#" className="cart-icon">
+          <a href="/Login" className="cart-icon">
             <i className="fas fa-shopping-cart"></i> Carrito
           </a>
         </div>
@@ -36,11 +36,28 @@ const Header = () => {
 
       <nav className="main-nav">
         <ul>
-          <li><a href="#">Categorías</a></li>
+          <li className="dropdown">
+            <a href="#">Categorías</a>
+            <div className="desplegable-categorias">
+                <a href="#">Componentes</a>
+                <a href="#">Periféricos</a>
+                <a href="#">Monitores</a>
+                <a href="#">PCs</a>
+                <a href="#">Laptops</a>
+            </div>
+          </li>
           <li><a href="#" className="rojo">Ofertas</a></li>
           <li><a href="#">Campañas</a></li>
           <li><a href="#">Distribuidores</a></li>
-          <li><a href="#">Contáctanos</a></li>
+          <li className="dropdown2">
+            <a href="#">Contáctanos</a>
+            <div className="desplegable-contactanos">
+                <a href="/SobreNosotros">Sobre Nosotros</a>
+                <a href="/Terms">Teminos y condiciones</a>
+                <a href="#">Politica de privacidad</a>
+                <a href="#">Contacto</a>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>

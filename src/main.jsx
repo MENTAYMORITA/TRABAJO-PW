@@ -10,8 +10,9 @@ import PerfilAd from './routes/PerfilClientPage.jsx'
 import PerfilAl from './routes/PerfilAdminPage.jsx'
 import Contenido from './components/Persona/Perfil/contenido.jsx'
 import Estado from './components/Estado/Estado.jsx'
+import AboutUs from './routes/About.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
+import TermsAndConditions from './routes/TermsPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,16 @@ const router = createBrowserRouter([
   {
     path: "/Perfilclient",
     element: <PerfilAl />
+  },
+
+  {
+    path: "/SobreNosotros",
+    element: <AboutUs />
+  },
+  
+  {
+    path: "/Terms",
+    element: <TermsAndConditions />
   },
 
   {

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+.about-us {
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    background-color: #f8f9fa;
+    
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    color: #343a40;
+  }
+  
+  .about-header p {
+    font-size: 1.1rem;
+    color: #6c757d;
+  }
+  
+  .mission-vision {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  
+  .section {
+    width: 48%;
+  }
+  
+  .section h2 {
+    font-size: 1.8rem;
+    color: #0039a1;
+    margin-bottom: 10px;
+  }
+  
+  .section p {
+    font-size: 1rem;
+    color: #343a40;
+  }
+  
+  .our-values {
+    margin-bottom: 40px;
+  }
+  
+  .our-values h2 {
+    font-size: 1.8rem;
+    color: #0039a1;
+    margin-bottom: 15px;
+  }
+  
+  .our-values ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .our-values li {
+    font-size: 1rem;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+  
+  .contact {
+    text-align: center;
+  }
+  
+  .contact h2 {
+    font-size: 1.8rem;
+    color: #0039a1;
+    margin-bottom: 15px;
+  }
+  
+  .contact p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  
+  .contact-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0039a1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .contact-btn:hover {
+    background-color: #0039a1;
+  }
+  

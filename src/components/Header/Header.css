@@ -125,8 +125,143 @@ header {
     text-decoration: none;
     padding: 8px 15px; 
     font-weight: bold;
+    font-size: 14px;
 }
 
 .main-nav .rojo {
     color: red;
+}
+
+/*Desplegable categorias*/
+
+.main-nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.main-nav .dropdown a {
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: none;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.main-nav .dropdown a:hover {
+    color: white;
+}
+
+.main-nav .desplegable-categorias {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav .dropdown:hover .desplegable-categorias {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.main-nav .desplegable-categorias a {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav .desplegable-categorias a:hover {
+    background-color: #f1f1f1;
+    color: #0039a1; 
+}
+
+/* Animacion*/
+.main-nav .desplegable-categorias a:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.main-nav .desplegable-categorias a:last-child {
+    border-bottom: none;
+}
+
+/*Desplegable Contacto*/
+
+.main-nav .dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.main-nav .dropdown2 a {
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: none;
+    font-size: 14px; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.main-nav .dropdown2 a:hover {
+    color: white;
+}
+
+.main-nav .desplegable-contactanos {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav .dropdown2:hover .desplegable-contactanos {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.main-nav .desplegable-contactanos a {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav .desplegable-contactanos a:hover {
+    background-color: #f1f1f1;
+    color: #0039a1; 
+}
+
+/* Animacion*/
+.main-nav .desplegable-contactanos a:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.main-nav .desplegable-contactanos a:last-child {
+    border-bottom: none;
 }
