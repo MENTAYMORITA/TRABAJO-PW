@@ -17,8 +17,7 @@ const Estado = () => {
   // Filtrar las órdenes en función del filtro y la búsqueda
   const filteredOrders = orders.filter(
     (order) =>
-      (filter === 'Pendiente' || filter === 'Entregado') &&
-      order.status === filter &&
+      (filter === 'Todos' ||  order.status === filter) &&
       order.client.toLowerCase().includes(search.toLowerCase())
   );
 

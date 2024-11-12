@@ -18,21 +18,21 @@
       "client": "Carlos Torres",
       "address": "Boulevard 789",
       "dni": "11223344",
-      "status": "En Revisión"
+      "status": "Pendiente"
     },
     {
       "orderNum": 4,
       "client": "Maria Lopez",
       "address": "Calle Principal 101",
       "dni": "99887766",
-      "status": "En Curso"
+      "status": "Pendiente"
     },
     {
       "orderNum": 5,
       "client": "Luis Ramirez",
       "address": "Avenida Secundaria 202",
       "dni": "33445566",
-      "status": "Aceptado"
+      "status": "Entregado"
     },
     {
       "orderNum": 6,
@@ -53,28 +53,28 @@
       "client": "Lucia Fernandez",
       "address": "Plaza Central 505",
       "dni": "77889900",
-      "status": "Cancelado"
+      "status": "Entregado"
     },
     {
       "orderNum": 9,
       "client": "Rosa Gutierrez",
       "address": "Camino Nuevo 606",
       "dni": "99001122",
-      "status": "Rechazado"
+      "status": "Pendiente"
     },
     {
       "orderNum": 10,
       "client": "Pedro Garcia",
       "address": "Calle Antigua 707",
       "dni": "22334455",
-      "status": "En Curso"
+      "status": "Pendiente"
     },
     {
       "orderNum": 11,
       "client": "Elena Morales",
       "address": "Avenida Central 808",
       "dni": "66778899",
-      "status": "En Revisión"
+      "status": "Entregado"
     },
     {
       "orderNum": 12,
