@@ -5,12 +5,32 @@
   align-items: center;
 }
 
-.product-list h2 {
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Limita el ancho del encabezado al mismo que la cuadrícula */
   margin-bottom: 20px;
+  padding: 0 20px; /* Espaciado lateral para alinearlo con la cuadrícula */
+}
+
+.product-title {
   font-size: 1.5em;
-  color: #333;
+  color: #0056b3;
   font-weight: bold;
-  text-align: center;
+  margin: 0;
+}
+
+.view-all {
+  font-size: 1em;
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.view-all:hover {
+  text-decoration: underline;
 }
 
 .product-grid {

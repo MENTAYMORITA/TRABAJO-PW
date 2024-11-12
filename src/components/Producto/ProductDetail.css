@@ -9,7 +9,6 @@
 
 .product-header {
   display: flex;
-  flex-direction: column;
   gap: 5px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
