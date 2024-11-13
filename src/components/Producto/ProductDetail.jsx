@@ -31,6 +31,20 @@ const ProductDetail = () => {
       });
   }, [productId]);
 
+  const addToCart = () => {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const existingProduct = cartItems.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      existingProduct.stock += 1; // Incrementa la cantidad si ya está en el carrito
+    } else {
+      cartItems.push({ ...product, stock: 1 }); // Agrega el producto con cantidad 1 si no está en el carrito
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    window.dispatchEvent(new Event("storage")); // Emite el evento para actualizar el Header
+  };
+
   if (loading) return <p>Cargando...</p>;
   if (!product) return <p>Producto no encontrado.</p>;
 
@@ -55,7 +69,7 @@ const ProductDetail = () => {
             <p className="price-cash">Pago en Efectivo: <strong>{product.priceUSD} / {product.pricePEN}</strong></p>
             <p className="price-card">Con Tarjeta (+5%): <strong>${(parseFloat(product.priceUSD.replace('$', '').replace(',', '')) * 1.05).toFixed(2)} / S/{(parseFloat(product.pricePEN.replace('S/', '').replace(',', '')) * 1.05).toFixed(2)}</strong></p>
           </div>
-          <button className="add-to-cart-button">AGREGAR AL CARRITO</button>
+          <button className="add-to-cart-button" onClick={addToCart}>AGREGAR AL CARRITO</button>
           <button className="whatsapp-button">Compra vía WhatsApp</button>
           <div className="product-technical-details">
             <h3>Detalles Técnicos:</h3>

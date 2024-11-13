@@ -11,6 +11,8 @@ import PerfilAl from './routes/PerfilAdminPage.jsx'
 import Contenido from './components/Persona/Perfil/contenido.jsx'
 import Estado from './components/Estado/Estado.jsx'
 import EstadoPro from './components/EstadoPro/EstadoPro'
+import Categoria from './components/Categoria/Categoria.jsx'
+import { CartProvider } from './components/Carrito/boton.jsx';
 
 import AboutUs from './routes/Informacion/AboutPage.jsx'
 import TermsAndConditions from './routes/Informacion/TermsPage.jsx'
@@ -85,6 +87,15 @@ const router = createBrowserRouter([
   {
     path: "/Carrito",
     element: <Carrito/>
+  },
+  {
+    path: "/CartProvider",
+    element: <CartProvider/>
+  },
+
+  {
+    path: "/categoria/:categoria",
+    element: <Categoria />
   }
 
 ]);

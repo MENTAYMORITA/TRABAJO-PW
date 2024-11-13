@@ -6,11 +6,8 @@ const Carrito = () => {
   const [costoEnvio, setCostoEnvio] = useState(29.90);
 
   useEffect(() => {
-    // Cargar productos desde el archivo JSON
-    fetch('/Producto.json')
-      .then((response) => response.json())
-      .then((data) => setProductos(data))
-      .catch((error) => console.error('Error al cargar productos:', error));
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    setProductos(cartItems);
   }, []);
 
   const descuentoTotal = productos.reduce((acc, prod) => {
@@ -27,29 +24,33 @@ const Carrito = () => {
   const total = subtotal + costoEnvio - descuentoTotal;
 
   const incrementarCantidad = (id) => {
-    setProductos((prevProductos) =>
-      prevProductos.map((producto) =>
-        producto.id === id
-          ? { ...producto, stock: producto.stock + 1 }
-          : producto
-      )
-    );
+    setProductos((prevProductos) => {
+      const updatedProductos = prevProductos.map((producto) =>
+        producto.id === id ? { ...producto, stock: producto.stock + 1 } : producto
+      );
+      localStorage.setItem('cartItems', JSON.stringify(updatedProductos));
+      return updatedProductos;
+    });
   };
 
   const decrementarCantidad = (id) => {
-    setProductos((prevProductos) =>
-      prevProductos.map((producto) =>
+    setProductos((prevProductos) => {
+      const updatedProductos = prevProductos.map((producto) =>
         producto.id === id && producto.stock > 1
           ? { ...producto, stock: producto.stock - 1 }
           : producto
-      )
-    );
+      );
+      localStorage.setItem('cartItems', JSON.stringify(updatedProductos));
+      return updatedProductos;
+    });
   };
 
   const eliminarProducto = (id) => {
-    setProductos((prevProductos) =>
-      prevProductos.filter((producto) => producto.id !== id)
-    );
+    setProductos((prevProductos) => {
+      const updatedProductos = prevProductos.filter((producto) => producto.id !== id);
+      localStorage.setItem('cartItems', JSON.stringify(updatedProductos));
+      return updatedProductos;
+    });
   };
 
   return (

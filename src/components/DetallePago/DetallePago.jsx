@@ -3,7 +3,7 @@ import './DetallePago.css';
 
 const DetallePago = () => {
   return (
-    <div className="contenedor">
+    <div className="contenedor detalle-pago">
       <h2>Datos de la persona</h2>
       <div className="campo">
         <label htmlFor="nombre">Nombre:</label>

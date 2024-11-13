@@ -1,6 +1,24 @@
 import "./Header.css";
+import React, { useEffect, useState } from 'react';
 
 const Header = () => {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const storedCount = localStorage.getItem('cartCount');
+    setCartCount(storedCount ? parseInt(storedCount) : 0);
+
+    const handleStorageChange = () => {
+      const updatedCount = localStorage.getItem('cartCount');
+      setCartCount(updatedCount ? parseInt(updatedCount) : 0);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
   return (
     <header>
       <div className="top-bar">
@@ -31,6 +49,7 @@ const Header = () => {
           </a>
           <a href="/Carrito" className="cart-icon">
             <i className="fas fa-shopping-cart"></i> Carrito
+            <span className="cart-count">{cartCount}</span>
           </a>
         </div>
       </div>
@@ -45,13 +64,13 @@ const Header = () => {
                 <a href="#">Computadoras y Componentes</a>
                 <div className="subcategory-dropdown">
                 {/*  <h3>Computadoras y Componentes</h3>*/}
-                  <a href="#">Laptops</a>
-                  <a href="#">Laptops Gaming</a>
-                  <a href="#">Procesadores</a>
-                  <a href="#">Placas Madre</a>
-                  <a href="#">Tarjetas de Video</a>
-                  <a href="#">Gabinetes</a>
-                  <a href="#">Periféricos y Monitores</a>
+                  <a href="/categoria/Laptops">Laptops</a>
+                  <a href="/categoria/Laptops Gaming">Laptops Gaming</a>
+                  <a href="/categoria/Procesadores">Procesadores</a>
+                  <a href="/categoria/Placas Madre">Placas Madre</a>
+                  <a href="/categoria/Tarjetas de Video">Tarjetas de Video</a>
+                  <a href="/categoria/Gabinetes">Gabinetes</a>
+                  <a href="/categoria/Periféricos y Monitores">Periféricos y Monitores</a>
                 </div>
               </div>
 
@@ -60,11 +79,11 @@ const Header = () => {
                 <a href="#">Periféricos y Monitores</a>
                 <div className="subcategory-dropdown"> 
                  {/* <h3>Periféricos y Monitores</h3>*/}
-                  <a href="#">Monitores</a>
-                  <a href="#">Monitores Gaming</a>
-                  <a href="#">Teclados</a>
-                  <a href="#">Mouses</a>
-                  <a href="#">Auriculares</a>
+                  <a href="/categoria/Monitores">Monitores</a>
+                  <a href="/categoria/Monitores Gaming">Monitores Gaming</a>
+                  <a href="/categoria/Teclados">Teclados</a>
+                  <a href="/categoria/Mouses">Mouses</a>
+                  <a href="/categoria/Auriculares">Auriculares</a>
                 </div>
               </div>
 
@@ -73,10 +92,10 @@ const Header = () => {
                 <a href="#">Accesorios y Enfriamiento</a>
                 <div className="subcategory-dropdown">
                  {/* <h3>Accesorios y Enfriamiento</h3>*/}
-                  <a href="#">Accesorios</a>
-                  <a href="#">Coolers para Case</a>
-                  <a href="#">Coolers para Procesador</a>
-                  <a href="#">Sistemas de Enfriamiento Líquido</a>
+                  <a href="/categoria/Accesorios">Accesorios</a>
+                  <a href="/categoria/Coolers para Case">Coolers para Case</a>
+                  <a href="/categoria/Coolers para Procesador">Coolers para Procesador</a>
+                  <a href="/categoria/Sistemas de Enfriamiento Líquido">Sistemas de Enfriamiento Líquido</a>
                 </div>
               </div>
             </div>

@@ -283,3 +283,22 @@ header {
 .main-nav .desplegable-contactanos a:last-child {
     border-bottom: none;
 }
+
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #0056b3;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+  }
+  
+  
