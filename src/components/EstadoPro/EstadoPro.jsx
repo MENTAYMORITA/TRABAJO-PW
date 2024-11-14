@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './EstadoPro.css';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../../Api/constants';
+
+
 const EstadoPro = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState('');
@@ -8,11 +11,30 @@ const EstadoPro = () => {
 
   useEffect(() => {
     // Cargar datos desde el archivo JSON
-    fetch('/Producto.json')
+    fetch(`${BASE_URL}/products`)
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error al cargar datos:', error));
   }, []);
+
+  const handleDelete = (productId) => {
+    // Filtrar productos eliminando el que tenga el id proporcionado
+    const updatedProducts = products.filter(product => product.id !== productId);
+    setProducts(updatedProducts);
+
+    // Si deseas enviar una solicitud DELETE al backend
+    fetch(`${BASE_URL}/products/${productId}`, {
+      method: 'DELETE',
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Producto eliminado correctamente');
+      } else {
+        console.error('Error al eliminar el producto');
+      }
+    })
+    .catch(error => console.error('Error en la solicitud de eliminación:', error));
+  };
 
   const filteredProducts = products.filter(product => 
     product.name.toLowerCase().includes(search.toLowerCase()) &&
@@ -62,8 +84,14 @@ const EstadoPro = () => {
               <td>{product.category}</td>
               <td>{product.description}</td>
               <td><img src={product.imageUrl} alt={product.name} width="50" /></td>
-              <td><button>Editar</button></td>
-              <td><button>Eliminar</button></td>
+              <td>
+                <Link to={`/Editar/${product.id}`}>
+                  <button>Editar</button>
+                </Link>
+              </td>
+              <td>
+                <button onClick={() => handleDelete(product.id)}>Eliminar</button>
+              </td>
             </tr>
           ))}
         </tbody>

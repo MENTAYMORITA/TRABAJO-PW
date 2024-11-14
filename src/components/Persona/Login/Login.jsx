@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from './page.module.css';
 import Input from '../Registro/input1';
-import Admins from '../Registro/Admin.json';
-import Cliente from '../Registro/Cliente.json';
+import { BASE_URL } from "../../../Api/constants";
 
 const Logins = () => {
   const [state, setState] = useState({ usuario: '', contrasena: '' });
@@ -13,26 +13,41 @@ const Logins = () => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const validarLogeo = (e) => {
+  const validarLogeo = async (e) => {
     e.preventDefault();
 
     const { usuario, contrasena } = state;
-    const admin = Admins.find(
-      (admin) => admin.correo === usuario && admin.password === contrasena
-    );
 
-    const alumno = Cliente.find(
-      (alumno) => alumno.correo === usuario && alumno.password === contrasena
-    );
+    // Determinar si el usuario es un correo o un nombre de usuario
+    const isEmail = usuario.includes('@');
+    const loginData = {
+      password: contrasena,
+      ...(isEmail ? { email: usuario } : { username: usuario })
+    };
 
-    if (admin) {
-      localStorage.setItem('usuario', JSON.stringify(admin));
-      navigate('/Estado'); // Redirige a Contenido como administrador
-    } else if (alumno) {
-      localStorage.setItem('usuario', JSON.stringify(alumno));
-      navigate('/Contenido/alumno'); // Redirige a Contenido como alumno
-    } else {
-      alert('No coincide la contraseña o usuario o No tiene cuenta');
+    try {
+      // Realizar solicitud al backend
+      const response = await axios.post(`${BASE_URL}/user/login`, loginData);
+      const { data } = response;
+
+      if (data) {
+        // Guardar el usuario en el localStorage según el rol recibido
+        localStorage.setItem('usuario', JSON.stringify(data));
+
+        // Redireccionar según el rol del usuario
+        if (data.role === 'admin' && data.email.endsWith('@ulima.edu.pe')) {
+          navigate('/Estado'); // Página para admin
+        } else if (data.role === 'user' && data.email.endsWith('@gmail.com')) {
+          navigate('/Contenido/alumno'); // Página para cliente
+        } else {
+          alert('Rol desconocido. No se puede acceder.');
+        }
+      } else {
+        alert('No coincide la contraseña o usuario o No tiene cuenta');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error al intentar iniciar sesión. Intente nuevamente.');
     }
   };
 
@@ -81,6 +96,6 @@ const Logins = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Logins;

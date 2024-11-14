@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ProductDetail.css';
+import { BASE_URL } from '../../Api/constants';
+
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -10,7 +12,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/Producto.json')
+    fetch(`${BASE_URL}/products`)
       .then((response) => response.json())
       .then((data) => {
         const selectedProduct = data.find((p) => p.id === parseInt(productId));

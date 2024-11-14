@@ -113,7 +113,7 @@
     justify-content: start;
     align-items: center;
     list-style: none;
-    color: var(--m-3-sys-light-primary, #6750A4);
+    color: var(--m-3-sys-light-primary, #0039a1);
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -148,15 +148,16 @@
 
 
 .recuadro1{
+    width: 50%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: row;
-    justify-content: start;
+    flex-direction: column;
     align-items: center;
-    width: 98%;
-    height: 600px;
-    margin: 10px 10px; 
+    
 }
-
 .cuadro1{
     display: flex;
     justify-content: center;
@@ -184,11 +185,9 @@
 
 .articulo1{
     display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 510px;
     background: #F3EDF7; 
     
 }
@@ -217,7 +216,7 @@
     height: 42px;
     background-color: #FEF7FF;
     border-radius: 10px;
-    border: 1px solid #6750A4;
+    border: 1px solid #0039a1;
     box-sizing:border-box;
 }
 
@@ -249,8 +248,8 @@
 }
 
 .licuadro:hover{
-    border-bottom: 5px solid #6750A4;
-    color:#6750A4
+    border-bottom: 5px solid #0039a1;
+    color:#0039a1
 }
 
 .formulario{
@@ -273,7 +272,7 @@
     width: 300px;
     height: 40px;
     padding: 8px 0px 8px 0px;
-    border: 2px solid #6750A4;
+    border: 2px solid #0039a1;
     border-radius: 4px 4px 0px 0px;
 }
 
@@ -282,10 +281,10 @@
     width: 284px;
     height: 25px;
     padding: 8px 0px 8px 16px;
-    background-color:  #F3EDF7;
+    background-color:  #e9edf3;
     border: none;
     outline: none;
-    color:#6750A4;
+    color:#0039a1;
 }
 
 .Button{
@@ -298,15 +297,15 @@
     border-radius: 100px;
     outline: none;
     border: 1px solid var(--m-3-sys-light-outline, #79747E);
-    background-color: #F3EDF7;
-    color:#6750A4;
+    background-color: #0039a1;
+    color:#ffffff;
 }
 
 .contenedorphoto{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6750A4;
+    background-color: #0039a1;
     width: 279px;
     height: 253px;
     margin-bottom: 90px;
@@ -322,7 +321,7 @@
     justify-content: start;
     align-items: flex-start;
     width: 280px;
-    color: var(--m-3-sys-light-primary, #6750A4);
+    color: var(--m-3-sys-light-primary, #0039a1);
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-style: normal;
@@ -348,7 +347,7 @@
     border-radius: 100px;
     outline: none;
     border: none;
-    background-color: #6750A4;
+    background-color: #0039a1;
     color: #Fff;
 }
   
@@ -372,9 +371,32 @@
     outline: none;
     border: none;
     color: #Fff;
-    background-color: #6750A4;
+    background-color: #0039a1;
     padding: 5px;
 }
 
-
-
+.tabs {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ocupa el ancho completo del formulario */
+    border-bottom: 1px solid #4f7bda;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo de cada tab */
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #1164b1;
+    border-radius: 10px 10px 0 0;
+    margin: 0 10px;
+    color: #1b52b8;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  /* Tab activo */
+  .tabActivo {
+    background-color: #c1d6f5;
+  }
+  

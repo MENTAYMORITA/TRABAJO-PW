@@ -1,17 +1,18 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from './registro.module.css';
 import Input from './input1';
-import React, { useState } from 'react';
-import Admins from "./Admin.json";
-import Cliente from "./Cliente.json";
-import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from "../../../Api/constants";
 
 const Registros = () => {
   const [formData, setFormData] = useState({
+    username: '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
     nroDocumento: '',
-    correo: '',
+    email: '',
     password: '',
     confirmarPassword: '',
   });
@@ -27,12 +28,13 @@ const Registros = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validación de campos completos y coincidencia de contraseñas
     for (const key in formData) {
-      if (key !== 'password' && key !== 'confirmarPassword' && formData[key] === '') {
-        alert('Las credenciales no se rellenaron completamente');
+      if (key !== 'confirmarPassword' && formData[key] === '') {
+        alert('Por favor completa todos los campos');
         return;
       }
     }
@@ -42,32 +44,31 @@ const Registros = () => {
       return;
     }
 
+    // Definir rol según el email
+    const role = formData.email.endsWith('@ulima.edu.pe') ? 'admin' : 'user';
+
+    // Crear objeto de usuario para enviar al backend
     const nuevoUsuario = {
+      username: formData.username,
       nombres: formData.nombres,
       apellidos: formData.apellidos,
       tipoDocumento: formData.tipoDocumento,
       nroDocumento: formData.nroDocumento,
-      correo: formData.correo,
+      email: formData.email,
       password: formData.password,
+      role,
     };
 
-    let tipoUsuario = 'Alumno';
-    if (nuevoUsuario.correo.endsWith('@ulima.edu.pe')) {
-      tipoUsuario = 'Admin';
-    } else if (nuevoUsuario.correo.endsWith('@gmail.com')) {
-      tipoUsuario = 'Alumno';
+    try {
+      // Enviar datos al backend
+      await axios.post(`${BASE_URL}/user/register`, nuevoUsuario);
+      setRegistroExitoso(true);
+      navigate('/login'); // Redirige a la página de login
+
+    } catch (error) {
+      console.error('Error al registrar usuario:', error);
+      alert('Error al registrar usuario. Intente nuevamente.');
     }
-
-    const data = tipoUsuario === 'Admin' ? Admins : Cliente;
-    data.push(nuevoUsuario);
-    localStorage.setItem(tipoUsuario, JSON.stringify(data));
-
-    const datosAlmacenados = JSON.parse(localStorage.getItem(tipoUsuario));
-    console.log('Datos almacenados en localStorage:', datosAlmacenados);
-
-    setRegistroExitoso(true);
-
-    navigate('/login');  // Redirect to the login page
   };
 
   return (
@@ -77,14 +78,14 @@ const Registros = () => {
       </div>
       <form className={styles.section} onSubmit={handleSubmit}>
         <div className={styles.form}>
+          <Input spanText="Username" inputType="text" value={formData.username} onChange={handleInputChange} required name="username"/>
           <Input spanText="Nombres" inputType="text" value={formData.nombres} onChange={handleInputChange} required name="nombres"/>
           <Input spanText="Apellidos" inputType="text" value={formData.apellidos} onChange={handleInputChange} required name="apellidos"/>
           <Input spanText="Tipo de Documento" inputType="text" value={formData.tipoDocumento} onChange={handleInputChange} required name="tipoDocumento"/>
           <Input spanText="Nro de Documento" inputType="text" value={formData.nroDocumento} onChange={handleInputChange} required name="nroDocumento"/>
-      
-          <Input spanText="Correo Electronico" inputType="email" value={formData.correo} onChange={handleInputChange} required name="correo"/>
-          <Input name="password" spanText="Password" inputType="password" value={formData.password} onChange={handleInputChange} required />
-          <Input name="confirmarPassword" spanText="Ingrese Password Nuevamente" inputType="password" value={formData.confirmarPassword} onChange={handleInputChange} required />
+          <Input spanText="Correo Electrónico" inputType="email" value={formData.email} onChange={handleInputChange} required name="email"/>
+          <Input name="password" spanText="Contraseña" inputType="password" value={formData.password} onChange={handleInputChange} required />
+          <Input name="confirmarPassword" spanText="Confirmar Contraseña" inputType="password" value={formData.confirmarPassword} onChange={handleInputChange} required />
           {registroExitoso && (
             <div className={styles.exitoso}>Usuario registrado correctamente.</div>
           )}

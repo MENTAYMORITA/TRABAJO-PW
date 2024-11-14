@@ -25,6 +25,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ProductList from './components/principal/ProductList.jsx'
 import DetallePago from './components/DetallePago/DetallePago'
 import Carrito from './components/Carrito/Carrito'
+import Editar from './components/EstadoPro/Editar'
+import Registrar from './components/EstadoPro/Registrar'
 
 const router = createBrowserRouter([
   {
@@ -96,7 +98,18 @@ const router = createBrowserRouter([
   {
     path: "/categoria/:categoria",
     element: <Categoria />
+  },
+
+  {
+    path: "/Editar/:id",
+    element: <Editar />
+  },
+
+  {
+    path: "/Registrar",
+    element: <Registrar />
   }
+  
 
 ]);
 

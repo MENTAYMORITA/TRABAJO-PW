@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import styles from './perfiladmin.module.css';
 import InputP from './inputperfil';
 import BotonP from './botonP';
+import { BASE_URL } from "../../../Api/constants";
 
 const Contenido = () => {
-  const { modo } = useParams(); // Obtén el modo desde los parámetros de la URL
   const [opcionSeleccionada, setOpcionSeleccionada] = useState('DATOS PERSONALES');
   const [datosPersonales, setDatosPersonales] = useState({
+    id: '', 
     nombres: '',
-    tipoDocumento: '',
     apellidos: '',
+    tipoDocumento: '',
     nroDocumento: '',
-    correo: '',
+    email: '',
     password: '',
-    color: '',
-    prefijo: '',
-    idioma: '',
   });
 
   useEffect(() => {
@@ -32,21 +30,51 @@ const Contenido = () => {
     setDatosPersonales({ ...datosPersonales, [name]: value });
   };
 
-  const handleGuardarCambios = () => {
+  const handleGuardarCambios = async () => {
     const camposVacios = Object.values(datosPersonales).some(value => value.trim() === '');
   
     if (camposVacios) {
       alert('Por favor, completa todos los campos antes de guardar los cambios.');
     } else {
-      const usuarioActualizado = { ...datosPersonales };
-      localStorage.setItem('usuario', JSON.stringify(usuarioActualizado));
-      console.log('Datos de usuario actualizados en localStorage:', usuarioActualizado);
+      try {
+        const response = await axios.put(`${BASE_URL}/user/${datosPersonales.id}`, {
+          nombres: datosPersonales.nombres,
+          apellidos: datosPersonales.apellidos,
+          tipoDocumento: datosPersonales.tipoDocumento,
+          nroDocumento: datosPersonales.nroDocumento,
+          email: datosPersonales.email,
+          password: datosPersonales.password,
+        });
+        
+        localStorage.setItem('usuario', JSON.stringify(response.data));
+        
+        alert('Datos actualizados correctamente.');
+      } catch (error) {
+        console.error('Error al actualizar datos:', error);
+        alert('Error al actualizar datos. Intente nuevamente.');
+      }
     }
   };
 
   return (
     <article className={styles.articulo1}>
       <div className={styles.recuadro1}>
+        
+        <div className={styles.tabs}>
+          <span
+            className={`${styles.tab} ${opcionSeleccionada === 'DATOS PERSONALES' ? styles.tabActivo : ''}`}
+            onClick={() => setOpcionSeleccionada('DATOS PERSONALES')}
+          >
+            DATOS PERSONALES
+          </span>
+          <span
+            className={`${styles.tab} ${opcionSeleccionada === 'CUENTA' ? styles.tabActivo : ''}`}
+            onClick={() => setOpcionSeleccionada('CUENTA')}
+          >
+            CUENTA
+          </span>
+        </div>
+        
         <div className={styles.cuadro2}>
           <form className={styles.formulario}>
             {opcionSeleccionada === 'DATOS PERSONALES' && (
@@ -55,24 +83,15 @@ const Contenido = () => {
                 <InputP placeholder='Tipo de Documento' inputType='text' name='tipoDocumento' required value={datosPersonales.tipoDocumento || ''} onChange={handleDatosPersonalesChange} />
                 <InputP placeholder='Apellidos' inputType='text' required name='apellidos' value={datosPersonales.apellidos || ''} onChange={handleDatosPersonalesChange} />
                 <InputP placeholder='Nro de Documento' inputType='text' name='nroDocumento' required value={datosPersonales.nroDocumento || ''} onChange={handleDatosPersonalesChange} />
-                <BotonP onSaveChanges={handleGuardarCambios} />
               </>
             )}
-            {modo === 'admin' && opcionSeleccionada === 'CUENTA' && (
+            {opcionSeleccionada === 'CUENTA' && (
               <>
-                <InputP placeholder='Correo' inputType='email' name='correo' required value={datosPersonales.correo || ''} onChange={handleDatosPersonalesChange} />
-                <InputP placeholder='Password' inputType='password' name='password' required value={datosPersonales.password || ''} onChange={handleDatosPersonalesChange} />
-                <BotonP onSaveChanges={handleGuardarCambios} />
+                <InputP placeholder='Correo' inputType='email' name='email' required value={datosPersonales.email || ''} onChange={handleDatosPersonalesChange} />
+                <InputP placeholder='Contraseña' inputType='password' name='password' required value={datosPersonales.password || ''} onChange={handleDatosPersonalesChange} />
               </>
             )}
-            {modo === 'admin' && opcionSeleccionada === 'PREFERENCIAS' && (
-              <>
-                <InputP placeholder='Color' inputType='text' name='color' required value={datosPersonales.color || ''} onChange={handleDatosPersonalesChange} />
-                <InputP placeholder='Prefijo' inputType='text' name='prefijo' required value={datosPersonales.prefijo || ''} onChange={handleDatosPersonalesChange} />
-                <InputP placeholder='Idioma' inputType='text' name='idioma' required value={datosPersonales.idioma || ''} onChange={handleDatosPersonalesChange} />
-                <BotonP onSaveChanges={handleGuardarCambios} />
-              </>
-            )}
+            <BotonP onSaveChanges={handleGuardarCambios} />
           </form>
         </div>
       </div>
