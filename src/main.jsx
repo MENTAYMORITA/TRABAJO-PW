@@ -6,8 +6,6 @@ import Header from './components/Header/Header.jsx'
 import Login from './routes/LoginPage.jsx'
 import Registros from './components/Persona/Registro/Register.jsx'
 import Footer from './components/Footer/Footer.jsx'
-import PerfilAd from './routes/PerfilClientPage.jsx'
-import PerfilAl from './routes/PerfilAdminPage.jsx'
 import Contenido from './components/Persona/Perfil/contenido.jsx'
 import Estado from './components/Estado/Estado.jsx'
 import EstadoPro from './components/EstadoPro/EstadoPro'
@@ -28,6 +26,7 @@ import Carrito from './components/Carrito/Carrito'
 import Editar from './components/EstadoPro/Editar'
 import Registrar from './components/EstadoPro/Registrar'
 
+
 const router = createBrowserRouter([
   {
      path: "/",
@@ -46,14 +45,7 @@ const router = createBrowserRouter([
     path: "/Contenido/:modo",
     element: <Contenido />
   },
-  {
-    path: "/Perfiladm",
-    element: <PerfilAd />
-  },
-  {
-    path: "/Perfilclient",
-    element: <PerfilAl />
-  },
+  
 
   {
     path: "/SobreNosotros",
@@ -108,7 +100,12 @@ const router = createBrowserRouter([
   {
     path: "/Registrar",
     element: <Registrar />
+  },
+  {
+    path: "/DetallePago",
+    element: <DetallePago />
   }
+
   
 
 ]);

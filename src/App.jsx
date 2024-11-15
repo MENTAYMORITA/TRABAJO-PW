@@ -5,9 +5,11 @@ import Aside from './components/Aside/Aside.jsx'
 import ProductList from './components/principal/ProductList'
 import Principal from './components/principal/Principal'
 
+
 function App() {
 
   return (
+    
       <section className="sectionMain">
         <Principal/>
       </section>

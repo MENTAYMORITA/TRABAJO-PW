@@ -5,30 +5,38 @@ import { BASE_URL } from '../../Api/constants';
 
 const Categoria = () => {
   const { categoria } = useParams(); // Obtenemos la categoría seleccionada desde la URL
-  const [productos, setProductos] = useState([]);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  // Cargar todos los productos una vez
+  // Fetch para cargar los productos filtrados por categoría
   useEffect(() => {
-    fetch(`${BASE_URL}/products/category/:category`) // Llamada para obtener todos los productos
-      .then((response) => response.json())
-      .then((data) => {
-        setProductos(data); // Guardamos todos los productos en el estado
-      })
-      .catch((error) => console.error('Error al cargar productos:', error));
-  }, []);
+    const fetchProductos = async () => {
+      setLoading(true);
+      setError('');
+      try {
+        const response = await fetch(`${BASE_URL}/products/category/${categoria}`); // Llamada al endpoint con la categoría dinámica
+        if (!response.ok) {
+          throw new Error('Error al cargar los productos.');
+        }
+        const data = await response.json();
+        setProductosFiltrados(data);
+      } catch (error) {
+        setError(error.message);
+        console.error('Error al cargar productos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // Filtrar productos por categoría cada vez que cambia `categoria`
-  useEffect(() => {
-    const filtrados = productos.filter((producto) =>
-      producto.categoria.toLowerCase() === categoria.toLowerCase()
-    );
-    setProductosFiltrados(filtrados);
-  }, [categoria, productos]);
+    fetchProductos();
+  }, [categoria]);
 
   return (
     <div>
       <h2 className="TitleH2">Productos: {categoria}</h2>
+      {loading && <p>Cargando productos...</p>}
+      {error && <p className="error-message">{error}</p>}
       <div className="categoria">
         {productosFiltrados.length > 0 ? (
           productosFiltrados.map((producto, index) => (
@@ -43,7 +51,7 @@ const Categoria = () => {
             </div>
           ))
         ) : (
-          <p>No hay productos disponibles en esta categoría.</p>
+          !loading && <p>No hay productos disponibles en esta categoría.</p>
         )}
       </div>
     </div>

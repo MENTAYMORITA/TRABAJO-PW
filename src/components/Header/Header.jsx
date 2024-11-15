@@ -1,8 +1,13 @@
-import "./Header.css";
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faUser, faUserPlus, faBox, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import './Header.css';
 
 const Header = () => {
   const [cartCount, setCartCount] = useState(0);
+  const [userRole, setUserRole] = useState(null); // Estado para el rol del usuario
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para la sesión
+  const [showAccountDropdown, setShowAccountDropdown] = useState(false); // Estado para el desplegable de Cuenta
 
   useEffect(() => {
     const storedCount = localStorage.getItem('cartCount');
@@ -11,7 +16,24 @@ const Header = () => {
     const handleStorageChange = () => {
       const updatedCount = localStorage.getItem('cartCount');
       setCartCount(updatedCount ? parseInt(updatedCount) : 0);
+
+      // Actualiza el estado de sesión y rol del usuario
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      if (usuario) {
+        setUserRole(usuario.role);
+        setIsLoggedIn(true);
+      } else {
+        setUserRole(null);
+        setIsLoggedIn(false);
+      }
     };
+
+    // Configura el estado inicial de sesión y rol del usuario
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    if (usuario) {
+      setUserRole(usuario.role);
+      setIsLoggedIn(true);
+    }
 
     window.addEventListener('storage', handleStorageChange);
 
@@ -19,6 +41,14 @@ const Header = () => {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('usuario');
+    setIsLoggedIn(false);
+    setUserRole(null);
+    window.location.href = '/login'; 
+  };
+
   return (
     <header>
       <div className="top-bar">
@@ -33,24 +63,71 @@ const Header = () => {
         <div className="search-bar">
           <input type="text" placeholder="Buscar productos en IMPACTO..." />
           <button className="search-button">
-            <img src="./src/assets/busqueda.png" alt="Imagen" className="search-image" />
+            <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
         <div className="user-options">
-          <a href="/Login" className="user-icon">
-            <img src="./src/assets/usuario.png" alt="Imagen" className="search-image2" />
-            <i className="fas fa-user"></i> Inicia Sesión
-          </a>
-          <a href="/Register" className="register-icon">
-            <i className="fas fa-user-plus"></i> Registrarse
-          </a>
-          <a href="/Pedido" className="orders-icon">
-            <i className="fas fa-box"></i> Mis Pedidos
-          </a>
-          <a href="/Carrito" className="cart-icon">
-            <i className="fas fa-shopping-cart"></i> Carrito
-            <span className="cart-count">{cartCount}</span>
-          </a>
+          {isLoggedIn ? (
+            userRole === 'user' ? (
+              <>
+                <a href="/Pedido" className="orders-icon">
+                  <FontAwesomeIcon icon={faBox} />
+                  <span>Mis Pedidos</span>
+                </a>
+
+                <a href="/Carrito" className="cart-icon">
+                  <FontAwesomeIcon icon={faShoppingCart} />
+                  <span>Carrito</span>
+                  <span className="cart-count">{cartCount}</span>
+                </a>
+
+                <div
+                  className="account-dropdown"
+                  onMouseEnter={() => setShowAccountDropdown(true)}
+                  onMouseLeave={() => setShowAccountDropdown(false)}
+                >
+                  <a href="/Contenido/user" className="user-icon">
+                    <FontAwesomeIcon icon={faUser} />
+                    <span>Cuenta</span>
+                  </a>
+                  {showAccountDropdown && (
+                    <div className="account-dropdown-menu">
+                      <a href="/Contenido/user">Perfil</a>
+                      <button onClick={handleLogout} className="logout-button">
+                        Cerrar Sesión
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : userRole === 'admin' ? (
+              <>
+                <a href="/Estado" className="user-icon">
+                  <FontAwesomeIcon icon={faUser} />
+                  <span>Cuenta (Admin) </span>
+                </a>
+                <button onClick={handleLogout} className="logout-button">
+                  Cerrar Sesión
+                </button>
+              </>
+            ) : null
+          ) : (
+            <>
+              <a href="/Login" className="user-icon">
+                <FontAwesomeIcon icon={faUser} />
+                <span>Inicia Sesión</span>
+              </a>
+              <a href="/Register" className="register-icon">
+                <FontAwesomeIcon icon={faUserPlus} />
+                <span>Registrarse</span>
+              </a>
+              <a href="/Carrito" className="cart-icon">
+                <FontAwesomeIcon icon={faShoppingCart} />
+                <span>Carrito</span>
+                <span className="cart-count">{cartCount}</span>
+              </a>
+            </>
+          )}
         </div>
       </div>
 
@@ -59,11 +136,9 @@ const Header = () => {
           <li className="dropdown">
             <a href="#">Categorías</a>
             <div className="desplegable-categorias">
-              {/* Computadoras y Componentes */}
               <div className="category-group">
                 <a href="#">Computadoras y Componentes</a>
                 <div className="subcategory-dropdown">
-                {/*  <h3>Computadoras y Componentes</h3>*/}
                   <a href="/categoria/Laptops">Laptops</a>
                   <a href="/categoria/Laptops Gaming">Laptops Gaming</a>
                   <a href="/categoria/Procesadores">Procesadores</a>
@@ -73,12 +148,9 @@ const Header = () => {
                   <a href="/categoria/Periféricos y Monitores">Periféricos y Monitores</a>
                 </div>
               </div>
-
-              {/* Periféricos y Monitores */}
               <div className="category-group">
                 <a href="#">Periféricos y Monitores</a>
-                <div className="subcategory-dropdown"> 
-                 {/* <h3>Periféricos y Monitores</h3>*/}
+                <div className="subcategory-dropdown">
                   <a href="/categoria/Monitores">Monitores</a>
                   <a href="/categoria/Monitores Gaming">Monitores Gaming</a>
                   <a href="/categoria/Teclados">Teclados</a>
@@ -86,12 +158,9 @@ const Header = () => {
                   <a href="/categoria/Auriculares">Auriculares</a>
                 </div>
               </div>
-
-              {/* Accesorios y Enfriamiento */}
               <div className="category-group">
                 <a href="#">Accesorios y Enfriamiento</a>
                 <div className="subcategory-dropdown">
-                 {/* <h3>Accesorios y Enfriamiento</h3>*/}
                   <a href="/categoria/Accesorios">Accesorios</a>
                   <a href="/categoria/Coolers para Case">Coolers para Case</a>
                   <a href="/categoria/Coolers para Procesador">Coolers para Procesador</a>

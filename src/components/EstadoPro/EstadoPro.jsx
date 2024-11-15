@@ -21,8 +21,8 @@ const EstadoPro = () => {
     // Filtrar productos eliminando el que tenga el id proporcionado
     const updatedProducts = products.filter(product => product.id !== productId);
     setProducts(updatedProducts);
-
-    // Si deseas enviar una solicitud DELETE al backend
+  
+    // Solicitud DELETE al backend
     fetch(`${BASE_URL}/products/${productId}`, {
       method: 'DELETE',
     })
@@ -35,6 +35,7 @@ const EstadoPro = () => {
     })
     .catch(error => console.error('Error en la solicitud de eliminación:', error));
   };
+  
 
   const filteredProducts = products.filter(product => 
     product.name.toLowerCase().includes(search.toLowerCase()) &&
@@ -61,7 +62,9 @@ const EstadoPro = () => {
           <option value="Tarjetas de Video">Tarjetas de Video</option>
           <option value="Accesorios">Accesorios</option>
         </select>
-        <button>Registrar Producto</button>
+        <Link to={`/Registrar`}>
+                  <button>Registrar</button>
+                </Link>
       </div>
 
       <table className="product-table">

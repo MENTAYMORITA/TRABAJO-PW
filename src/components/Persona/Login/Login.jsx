@@ -18,7 +18,6 @@ const Logins = () => {
 
     const { usuario, contrasena } = state;
 
-    // Determinar si el usuario es un correo o un nombre de usuario
     const isEmail = usuario.includes('@');
     const loginData = {
       password: contrasena,
@@ -26,22 +25,23 @@ const Logins = () => {
     };
 
     try {
-      // Realizar solicitud al backend
       const response = await axios.post(`${BASE_URL}/user/login`, loginData);
       const { data } = response;
 
       if (data) {
-        // Guardar el usuario en el localStorage según el rol recibido
         localStorage.setItem('usuario', JSON.stringify(data));
 
-        // Redireccionar según el rol del usuario
         if (data.role === 'admin' && data.email.endsWith('@ulima.edu.pe')) {
-          navigate('/Estado'); // Página para admin
+          navigate('/Estado'); 
         } else if (data.role === 'user' && data.email.endsWith('@gmail.com')) {
-          navigate('/Contenido/alumno'); // Página para cliente
+          navigate('/Contenido/user'); 
         } else {
           alert('Rol desconocido. No se puede acceder.');
         }
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 50);
       } else {
         alert('No coincide la contraseña o usuario o No tiene cuenta');
       }
