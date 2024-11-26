@@ -105,7 +105,9 @@ const Carrito = () => {
           <span>Total:</span>
           <span>S/ {total.toFixed(2)}</span>
         </div>
+        <a href="/DetallePago">
         <button className="continuar-compra">Continuar compra</button>
+        </a>
       </div>
     </div>
   );

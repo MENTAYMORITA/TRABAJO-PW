@@ -11,7 +11,7 @@ import Estado from './components/Estado/Estado.jsx'
 import EstadoPro from './components/EstadoPro/EstadoPro'
 import Categoria from './components/Categoria/Categoria.jsx'
 import { CartProvider } from './components/Carrito/boton.jsx';
-
+import DetallePago from './components/DetallePago/DetallePago.jsx';
 import AboutUs from './routes/Informacion/AboutPage.jsx'
 import TermsAndConditions from './routes/Informacion/TermsPage.jsx'
 import PrivacyP from './routes/Informacion/PrivacyPolicyPage.jsx'
@@ -21,7 +21,7 @@ import ProductDetail from './components/Producto/ProductDetail.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import ProductList from './components/principal/ProductList.jsx'
-import DetallePago from './components/DetallePago/DetallePago'
+import DetalleCompra from './components/DetalleCompra/DetalleCompra.jsx'
 import Carrito from './components/Carrito/Carrito'
 import Editar from './components/EstadoPro/Editar'
 import Registrar from './components/EstadoPro/Registrar'
@@ -104,9 +104,13 @@ const router = createBrowserRouter([
   {
     path: "/DetallePago",
     element: <DetallePago />
+  },
+
+  {
+    path: "/DetalleCompra",
+    element: <DetalleCompra />
   }
 
-  
 
 ]);
 

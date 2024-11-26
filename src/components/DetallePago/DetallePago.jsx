@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DetallePago.css';
 
 const DetallePago = () => {
+  // Estado para controlar la visibilidad de la carpeta (modal)
+  const [mostrarMensaje, setMostrarMensaje] = useState(false);
+
+  // Función que se ejecuta al hacer clic en el botón "Pagar"
+  const manejarPago = () => {
+    setMostrarMensaje(true);
+  };
+
   return (
     <div className="contenedor detalle-pago">
       <h2>Datos de la persona</h2>
@@ -57,7 +65,17 @@ const DetallePago = () => {
         <input type="date" id="fecha-vencimiento" />
       </div>
 
-      <button className="boton-pagar">Pagar</button>
+      <button className="boton-pagar" onClick={manejarPago}>Pagar</button>
+
+      {/* Mostrar el modal solo si mostrarMensaje es verdadero */}
+      {mostrarMensaje && (
+        <div className="modal">
+          <div className="contenido-modal">
+            <h3>¡Su compra fue realizada con éxito!</h3>
+            <button onClick={() => setMostrarMensaje(false)} className="cerrar-modal">Cerrar</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
