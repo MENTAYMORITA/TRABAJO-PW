@@ -4,18 +4,17 @@ import { faSearch, faUser, faUserPlus, faBox, faShoppingCart } from '@fortawesom
 import './Header.css';
 
 const Header = () => {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState("");
   const [userRole, setUserRole] = useState(null); // Estado para el rol del usuario
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para la sesión
   const [showAccountDropdown, setShowAccountDropdown] = useState(false); // Estado para el desplegable de Cuenta
 
   useEffect(() => {
-    const storedCount = localStorage.getItem('cartCount');
-    setCartCount(storedCount ? parseInt(storedCount) : 0);
+
 
     const handleStorageChange = () => {
-      const updatedCount = localStorage.getItem('cartCount');
-      setCartCount(updatedCount ? parseInt(updatedCount) : 0);
+    
+     
 
       // Actualiza el estado de sesión y rol del usuario
       const usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -78,7 +77,7 @@ const Header = () => {
                 <a href="/Carrito" className="cart-icon">
                   <FontAwesomeIcon icon={faShoppingCart} />
                   <span>Carrito</span>
-                  <span className="cart-count">{cartCount}</span>
+                
                 </a>
 
                 <div
