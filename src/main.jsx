@@ -15,6 +15,7 @@ import DetallePago from './components/DetallePago/DetallePago.jsx';
 import AboutUs from './routes/Informacion/AboutPage.jsx'
 import TermsAndConditions from './routes/Informacion/TermsPage.jsx'
 import PrivacyP from './routes/Informacion/PrivacyPolicyPage.jsx'
+import ContactPage2 from './routes/Informacion/ContactPage.jsx'
 
 import ProductDetail from './components/Producto/ProductDetail.jsx'; 
 
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
     element: <AboutUs />
   },
   
+  {
+    path: "/Contacto",
+    element: <ContactPage2 />
+  },
+
   {
     path: "/Terms",
     element: <TermsAndConditions />

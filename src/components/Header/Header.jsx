@@ -178,7 +178,7 @@ const Header = () => {
               <a href="/SobreNosotros">Sobre Nosotros</a>
               <a href="/Terms">Términos y condiciones</a>
               <a href="/Privacidad">Política de privacidad</a>
-              <a href="#">Contacto</a>
+              <a href="/Contacto">Contacto</a>
             </div>
           </li>
         </ul>
