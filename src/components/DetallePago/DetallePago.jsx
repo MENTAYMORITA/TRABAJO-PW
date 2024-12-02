@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import './DetallePago.css';
 
 const DetallePago = () => {
   // Estado para controlar la visibilidad de la carpeta (modal)
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
 
-  // Función que se ejecuta al hacer clic en el botón "Pagar"
+
+  const navigate = useNavigate();
+
+
   const manejarPago = () => {
-    setMostrarMensaje(true);
+    // Redirige a la página de login
+    navigate('/Login');
   };
 
   return (
