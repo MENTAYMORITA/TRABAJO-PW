@@ -1,0 +1,16 @@
+
+.image-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff; 
+  }
+  
+  .centered-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+  }
+  

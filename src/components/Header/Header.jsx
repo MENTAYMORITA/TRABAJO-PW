@@ -169,7 +169,7 @@ const Header = () => {
             </div>
           </li>
           <li><a href="#" className="rojo">Ofertas</a></li>
-          <li><a href="#">Campañas</a></li>
+          <li><a href="/Campaña">Campañas</a></li>
           <li><a href="#">Distribuidores</a></li>
           <li className="dropdown2">
             <a href="#">Contáctanos</a>

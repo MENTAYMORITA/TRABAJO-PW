@@ -16,6 +16,7 @@ import AboutUs from './routes/Informacion/AboutPage.jsx'
 import TermsAndConditions from './routes/Informacion/TermsPage.jsx'
 import PrivacyP from './routes/Informacion/PrivacyPolicyPage.jsx'
 import ContactPage2 from './routes/Informacion/ContactPage.jsx'
+import CampañaPage from './routes/Informacion/Campaña.jsx'
 
 import ProductDetail from './components/Producto/ProductDetail.jsx'; 
 
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
   {
     path: "/Privacidad",
     element: <PrivacyP />
+  },
+
+  {
+    path: "/Campaña",
+    element: <CampañaPage />
   },
 
   {
