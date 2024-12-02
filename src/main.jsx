@@ -15,8 +15,6 @@ import DetallePago from './components/DetallePago/DetallePago.jsx';
 import AboutUs from './routes/Informacion/AboutPage.jsx'
 import TermsAndConditions from './routes/Informacion/TermsPage.jsx'
 import PrivacyP from './routes/Informacion/PrivacyPolicyPage.jsx'
-import ContactPage2 from './routes/Informacion/ContactPage.jsx'
-import CampañaPage from './routes/Informacion/Campaña.jsx'
 
 import ProductDetail from './components/Producto/ProductDetail.jsx'; 
 
@@ -27,7 +25,7 @@ import DetalleCompra from './components/DetalleCompra/DetalleCompra.jsx'
 import Carrito from './components/Carrito/Carrito'
 import Editar from './components/EstadoPro/Editar'
 import Registrar from './components/EstadoPro/Registrar'
-
+import Pedido from './components/Pedido/pedido.jsx'
 
 const router = createBrowserRouter([
   {
@@ -55,11 +53,6 @@ const router = createBrowserRouter([
   },
   
   {
-    path: "/Contacto",
-    element: <ContactPage2 />
-  },
-
-  {
     path: "/Terms",
     element: <TermsAndConditions />
   },
@@ -67,11 +60,6 @@ const router = createBrowserRouter([
   {
     path: "/Privacidad",
     element: <PrivacyP />
-  },
-
-  {
-    path: "/Campaña",
-    element: <CampañaPage />
   },
 
   {
@@ -121,6 +109,10 @@ const router = createBrowserRouter([
   {
     path: "/DetalleCompra",
     element: <DetalleCompra />
+  },
+  {
+    path: "/Pedido",
+    element: <Pedido />
   }
 
 

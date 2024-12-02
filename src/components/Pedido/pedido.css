@@ -1,0 +1,80 @@
+/* Estilos específicos para la página de Pedido */
+.pedido-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.pedido-page .home-about {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.pedido-page .about-text h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.pedido-page .about-text h3,
+.pedido-page .about-text h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.pedido-page ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.pedido-page ul li {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.pedido-page p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.pedido-page p strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.pedido-page .about-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pedido-page .about-text p,
+.pedido-page .about-text h3,
+.pedido-page .about-text h4 {
+  line-height: 1.6;
+}
+
+.pedido-page .pedido-resumen {
+  padding: 20px;
+  border-top: 2px solid #eee;
+  margin-top: 30px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.pedido-page .pedido-resumen p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
