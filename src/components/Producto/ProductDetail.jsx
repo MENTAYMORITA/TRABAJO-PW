@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import './ProductDetail.css';
 import { BASE_URL } from '../../Api/constants';
 
-
 const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -59,12 +58,6 @@ const ProductDetail = () => {
       <div className="product-detail-container">
         <div className="product-image-section">
           <img src={product.imageUrl} alt={product.name} className="product-detail-image" />
-          <div className="product-icons">
-            <span>CPU: {product.cpu}</span>
-            <span>RAM: {product.memory}</span>
-            <span>Almacenamiento: {product.storage}</span>
-            <span>Pantalla: {product.screen}</span>
-          </div>
         </div>
         <div className="product-info-section">
           <div className="product-pricing">
@@ -73,16 +66,9 @@ const ProductDetail = () => {
           </div>
           <button className="add-to-cart-button" onClick={addToCart}>AGREGAR AL CARRITO</button>
           <button className="whatsapp-button">Compra vía WhatsApp</button>
-          <div className="product-technical-details">
-            <h3>Detalles Técnicos:</h3>
-            <ul>
-              <li><strong>Modelo:</strong> {product.model}</li>
-              <li><strong>Pantalla:</strong> {product.screen}</li>
-              <li><strong>CPU:</strong> {product.cpu}</li>
-              <li><strong>Memoria:</strong> {product.memory}</li>
-              <li><strong>Almacenamiento:</strong> {product.storage}</li>
-              <li><strong>Gráficos:</strong> {product.graphics}</li>
-            </ul>
+          <div className="product-description">
+            <h3>Descripción:</h3>
+            <p>{product.description}</p>
           </div>
         </div>
       </div>

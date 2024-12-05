@@ -13,7 +13,7 @@ const Footer = () => {
             <li><a href="/">Inicio</a></li>
             <li><a href="#">Productos</a></li>
             <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Contáctanos</a></li>
+            <li><a href="/Contacto">Contáctanos</a></li>
           </ul>
         </div>
 
@@ -22,7 +22,7 @@ const Footer = () => {
           <h4>Información</h4>
           <ul>
             <li><a href="/SobreNosotros">Sobre Nosotros</a></li>
-            <li><a href="/Terms">Términos y Condiciones</a></li>
+            <li><a href="/Terminos">Términos y Condiciones</a></li>
             <li><a href="/Privacidad">Política de Privacidad</a></li>
           </ul>
         </div>

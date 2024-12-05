@@ -15,9 +15,11 @@ import DetallePago from './components/DetallePago/DetallePago.jsx';
 import AboutUs from './routes/Informacion/AboutPage.jsx'
 import TermsAndConditions from './routes/Informacion/TermsPage.jsx'
 import PrivacyP from './routes/Informacion/PrivacyPolicyPage.jsx'
-
+import ContactPage2 from './routes/Informacion/ContactPage.jsx'
+import CampañaPage from './routes/Informacion/Campaña.jsx'
+import Pedido from './components/Pedido/pedido.jsx'
 import ProductDetail from './components/Producto/ProductDetail.jsx'; 
-
+import SearchResultsPage from './components/Buscador/SearchResultsPage.jsx'; 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import ProductList from './components/principal/ProductList.jsx'
@@ -25,9 +27,10 @@ import DetalleCompra from './components/DetalleCompra/DetalleCompra.jsx'
 import Carrito from './components/Carrito/Carrito'
 import Editar from './components/EstadoPro/Editar'
 import Registrar from './components/EstadoPro/Registrar'
-import Pedido from './components/Pedido/pedido.jsx'
+
 
 const router = createBrowserRouter([
+  
   {
      path: "/",
      element: <App />
@@ -53,13 +56,23 @@ const router = createBrowserRouter([
   },
   
   {
-    path: "/Terms",
+    path: "/Contacto",
+    element: <ContactPage2 />
+  },
+
+  {
+    path: "/Terminos",
     element: <TermsAndConditions />
   },
 
   {
     path: "/Privacidad",
     element: <PrivacyP />
+  },
+
+  {
+    path: "/Campaña",
+    element: <CampañaPage />
   },
 
   {
@@ -110,6 +123,12 @@ const router = createBrowserRouter([
     path: "/DetalleCompra",
     element: <DetalleCompra />
   },
+
+  {
+    path: "/search",
+    element: <SearchResultsPage />
+  },
+  
   {
     path: "/Pedido",
     element: <Pedido />
@@ -120,7 +139,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Header/>
+     <Header/>
     <RouterProvider router={router} />
     <Footer/>
   </StrictMode>,

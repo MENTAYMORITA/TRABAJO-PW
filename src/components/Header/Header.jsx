@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faUserPlus, faBox, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import './Header.css';
 
-const Header = () => {
+  const Header = () => {
   const [cartCount, setCartCount] = useState(0);
   const [userRole, setUserRole] = useState(null); // Estado para el rol del usuario
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para la sesión
   const [showAccountDropdown, setShowAccountDropdown] = useState(false); // Estado para el desplegable de Cuenta
 
   useEffect(() => {
+
     const storedCount = localStorage.getItem('cartCount');
     setCartCount(storedCount ? parseInt(storedCount) : 0);
 
@@ -61,7 +62,9 @@ const Header = () => {
           </a>
         </div>
         <div className="search-bar">
-          <input type="text" placeholder="Buscar productos en IMPACTO..." />
+          <input type="text" placeholder="Buscar productos en IMPACTO..."          
+          
+            />
           <button className="search-button">
             <FontAwesomeIcon icon={faSearch} />
           </button>
@@ -145,7 +148,6 @@ const Header = () => {
                   <a href="/categoria/Placas Madre">Placas Madre</a>
                   <a href="/categoria/Tarjetas de Video">Tarjetas de Video</a>
                   <a href="/categoria/Gabinetes">Gabinetes</a>
-                  <a href="/categoria/Periféricos y Monitores">Periféricos y Monitores</a>
                 </div>
               </div>
               <div className="category-group">
@@ -170,15 +172,15 @@ const Header = () => {
             </div>
           </li>
           <li><a href="#" className="rojo">Ofertas</a></li>
-          <li><a href="#">Campañas</a></li>
+          <li><a href="/Campaña">Campañas</a></li>
           <li><a href="#">Distribuidores</a></li>
           <li className="dropdown2">
             <a href="#">Contáctanos</a>
             <div className="desplegable-contactanos">
               <a href="/SobreNosotros">Sobre Nosotros</a>
-              <a href="/Terms">Términos y condiciones</a>
+              <a href="/Terminos">Términos y condiciones</a>
               <a href="/Privacidad">Política de privacidad</a>
-              <a href="#">Contacto</a>
+              <a href="/Contacto">Contacto</a>
             </div>
           </li>
         </ul>
